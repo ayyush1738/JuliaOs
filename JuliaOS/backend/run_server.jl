@@ -4,16 +4,19 @@ DotEnv.load!()
 using Pkg
 Pkg.activate(".")
 
+include("agent_registry.jl")
+
+
 using JuliaOSBackend.JuliaOSV1Server
 using JuliaOSBackend.JuliaDB
 
 function main()
     @info "Initializing DB connection..."
     db_host = get(ENV, "DB_HOST", "localhost")
-    db_port = parse(Int, get(ENV, "DB_PORT", "5432"))
+    db_port = parse(Int, get(ENV, "DB_PORT", "5435"))
     db_name = get(ENV, "DB_NAME", "postgres")
     db_user = get(ENV, "DB_USER", "postgres")
-    db_password = get(ENV, "DB_PASSWORD", "1738")
+    db_password = get(ENV, "DB_PASSWORD", "postgres")
     connection_string = "host=$(db_host) port=$(db_port) dbname=$(db_name) user=$(db_user) password=$(db_password)"
     JuliaDB.initialize_connection(connection_string)
     @info "DB connection initialized successfully."
