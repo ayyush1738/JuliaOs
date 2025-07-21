@@ -1,6 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Optional: Make all text using this font look pixelated */
+.pixelated-text {
+  font-family: 'Press Start 2P', monospace !important;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+
 
 @layer base {
   :root {

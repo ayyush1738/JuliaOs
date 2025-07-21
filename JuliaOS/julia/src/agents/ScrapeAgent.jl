@@ -9,7 +9,7 @@ using Cascadia
 
 function run(config::Dict)
     url = get(config, "url", "https://example.com")
-    try
+    tryc
         response = HTTP.get(url)
         html = parsehtml(String(response.body))
         title_elements = eachmatch(Selector("title"), html.root)
